@@ -1,0 +1,30 @@
+table,alembic_version,alembic_version,2,"CREATE TABLE alembic_version (
+	version_num VARCHAR(32) NOT NULL, 
+	CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
+)"
+index,sqlite_autoindex_alembic_version_1,alembic_version,3,
+table,directors,directors,4,"CREATE TABLE directors (
+	id INTEGER NOT NULL, 
+	name TEXT NOT NULL, 
+	gender INTEGER, 
+	uid INTEGER, 
+	department TEXT, 
+	PRIMARY KEY (id)
+)"
+table,movies,movies,5,"CREATE TABLE movies (
+	id INTEGER NOT NULL, 
+	original_title TEXT NOT NULL, 
+	budget INTEGER, 
+	popularity INTEGER, 
+	revenue INTEGER, 
+	title TEXT, 
+	vote_average REAL, 
+	vote_count INTEGER, 
+	overview TEXT, 
+	tagline TEXT, 
+	uid INTEGER, 
+	release_date VARCHAR, 
+	director_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(director_id) REFERENCES directors (id)
+)"
